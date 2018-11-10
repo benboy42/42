@@ -1,32 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   main_ft_strnstr.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bboyeau <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/08 15:27:26 by bboyeau           #+#    #+#             */
-/*   Updated: 2018/11/10 14:16:12 by bboyeau          ###   ########.fr       */
+/*   Created: 2018/11/10 16:08:12 by bboyeau           #+#    #+#             */
+/*   Updated: 2018/11/10 17:04:03 by bboyeau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../libft.h"
+#include <string.h>
 
-char	*ft_strdup(char *src)
+int		main(int argc, char **argv)
 {
-	int		len;
-	int		count;
-	char	*dest;
-
-	count = 0;
-	len = ft_strlen(src);
-	if (!(dest = malloc((len + 1) * sizeof(*dest))))
-		return (0);
-	while (count < len)
-	{
-		dest[count] = src[count];
-		count++;
-	}
-	dest[count] = '\0';
-	return (dest);
+	printf("mon test:%s\n", ft_strnstr(argv[1], argv[2],atoi(argv[3])));
+	printf("mon test:%s\n", strnstr(argv[1], argv[2],atoi(argv[3])));
+	return (0);
 }

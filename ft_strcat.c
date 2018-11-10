@@ -1,32 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_strcat.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bboyeau <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/08 15:27:26 by bboyeau           #+#    #+#             */
-/*   Updated: 2018/11/10 14:16:12 by bboyeau          ###   ########.fr       */
+/*   Created: 2018/11/10 12:20:57 by bboyeau           #+#    #+#             */
+/*   Updated: 2018/11/10 14:53:30 by bboyeau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strdup(char *src)
+char	*ft_strcat(char *dest, char *src)
 {
-	int		len;
-	int		count;
-	char	*dest;
+	int i;
+	int j;
 
-	count = 0;
-	len = ft_strlen(src);
-	if (!(dest = malloc((len + 1) * sizeof(*dest))))
-		return (0);
-	while (count < len)
+	i = 0;
+	j = 0;
+	while (dest[i])
+		i++;
+	while (src[j])
 	{
-		dest[count] = src[count];
-		count++;
+		dest[i + j] = src[j];
+		j++;
 	}
-	dest[count] = '\0';
+	dest[i + j] = '\0';
 	return (dest);
 }

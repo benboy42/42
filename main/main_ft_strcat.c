@@ -1,32 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   main_ft_strcat.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bboyeau <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/08 15:27:26 by bboyeau           #+#    #+#             */
-/*   Updated: 2018/11/10 14:16:12 by bboyeau          ###   ########.fr       */
+/*   Created: 2018/11/10 14:41:52 by bboyeau           #+#    #+#             */
+/*   Updated: 2018/11/10 14:46:53 by bboyeau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../libft.h"
 
-char	*ft_strdup(char *src)
+int main(int argc, char **argv)
 {
-	int		len;
-	int		count;
-	char	*dest;
-
-	count = 0;
-	len = ft_strlen(src);
-	if (!(dest = malloc((len + 1) * sizeof(*dest))))
-		return (0);
-	while (count < len)
-	{
-		dest[count] = src[count];
-		count++;
-	}
-	dest[count] = '\0';
-	return (dest);
+	char dest1[20] = "je suis m\0";
+	char dest2[20] = "je suis m\0";
+	char src[6] = "abcde\0";
+	printf("ma fonction : %s \n",ft_strcat(dest1,src));
+	puts("lol");
+	printf("la fonction reele : %s",strcat(dest2,src));
+	return (0);
 }

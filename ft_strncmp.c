@@ -1,32 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bboyeau <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/08 15:27:26 by bboyeau           #+#    #+#             */
-/*   Updated: 2018/11/10 14:16:12 by bboyeau          ###   ########.fr       */
+/*   Created: 2018/11/10 16:19:07 by bboyeau           #+#    #+#             */
+/*   Updated: 2018/11/10 17:04:01 by bboyeau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strdup(char *src)
+int		ft_strncmp(char *s1, char *s2, unsigned int n)
 {
-	int		len;
-	int		count;
-	char	*dest;
+	unsigned int i;
 
-	count = 0;
-	len = ft_strlen(src);
-	if (!(dest = malloc((len + 1) * sizeof(*dest))))
-		return (0);
-	while (count < len)
+	i = 0;
+	while (s1[i] == s2[i] && i < n)
 	{
-		dest[count] = src[count];
-		count++;
+		i++;
+		if ((s1[i] == '\0' && s2[i] == '\0') || i ==n)
+			return (0);
 	}
-	dest[count] = '\0';
-	return (dest);
+	if (i < n)
+		return (s1[i] - s2[i]);
+	return (0);
 }
